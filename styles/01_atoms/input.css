@@ -1,0 +1,6 @@
+.marquee-input {
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid black;
+  padding: 0.5rem 0.625rem;
+  outline: 0;
+}
