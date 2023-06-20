@@ -1,3 +1,4 @@
 @import './tailwind.css';
-@import './globals.css';
+@import './00_base/00_base.css';
 @import './01_atoms/01_atoms.css';
+@import './05_pages/05_pages.css';

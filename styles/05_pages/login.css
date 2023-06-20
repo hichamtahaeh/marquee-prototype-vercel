@@ -1,3 +1,11 @@
-.marquee-login {
-  /* login page */
+.page--marquee-login {
+  .marquee-login {
+    padding: 6rem;
+
+    /* &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    } */
+  }
 }

@@ -1,7 +1,7 @@
 import type { NextRequest, NextResponse } from 'next/server';
 import { nanoid } from 'nanoid';
 import { SignJWT, jwtVerify } from 'jose';
-import { USER_TOKEN, getJwtSecretKey } from './constants';
+import { USER_TOKEN, USER_DATA, getJwtSecretKey } from './constants';
 
 interface UserJwtPayload {
   jti: string;
@@ -39,9 +39,10 @@ export async function getUserCookie() {
 }
 
 /**
- * Expires the user token cookie
+ * Expires the user token and data cookies.
  */
 export function expireUserCookie(res: NextResponse) {
   res.cookies.set(USER_TOKEN, '', { httpOnly: true, maxAge: 0 });
+  res.cookies.set(USER_DATA, '', { httpOnly: true, maxAge: 0 });
   return res;
 }

@@ -1,3 +1,7 @@
+.marquee-loader-container {
+  filter: blur(2px);
+}
+
 .marquee-loader {
   &__wrap {
     position: absolute;

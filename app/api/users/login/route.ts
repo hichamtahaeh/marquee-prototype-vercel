@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const { jsonResponse } = require('lib/utils');
 const { sanityClient } = require('lib/sanity');
 const { getUserCookie } = require('lib/auth');
-const { USER_TOKEN } = require('lib/constants');
+const { USER_TOKEN, USER_DATA } = require('lib/constants');
 
 export const runtime = 'edge';
 
@@ -42,8 +42,14 @@ export async function POST(request: Request) {
   }
 
   // Successful login response, set user cookie.
-  const response = jsonResponse(200, { pass: true, data: 'successfully logged in and set user token' });
+  delete user.password;
+  delete user.jwtToken;
+  const response = jsonResponse(200, { pass: true, data: user });
   response.cookies.set(USER_TOKEN, token, {
+    httpOnly: true,
+    maxAge: 60 * 60 * 2, // 2 hours in seconds
+  });
+  response.cookies.set(USER_DATA, JSON.stringify(user), {
     httpOnly: true,
     maxAge: 60 * 60 * 2, // 2 hours in seconds
   });

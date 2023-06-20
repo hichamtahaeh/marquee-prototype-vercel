@@ -1,36 +1,8 @@
 .card {
-  padding: 1rem 1.2rem;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
-  transition: background 200ms, border 200ms;
-  background: rgba(var(--card-rgb), 0.1);
-  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background: white;
+  border: 1px solid black;
   cursor: pointer;
   width: fit-content;
-
-  span {
-      display: inline-block;
-      transition: transform 200ms;
-  }
-
-  h2 {
-    font-weight: 600;
-  }
-
-  p {
-    margin: 0;
-    opacity: 0.6;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    max-width: 30ch;
-  }
-
-  &:hover {
-      background: rgba(var(--card-rgb), 0.2);
-
-      span {
-          transform: translateX(4px);
-      }
-  }
 }
