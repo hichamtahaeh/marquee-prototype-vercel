@@ -3,6 +3,8 @@ const { sanityClient } = require('lib/sanity');
 const { jsonResponse } = require('lib/utils');
 const { USER_DATA } = require('lib/constants');
 
+export const runtime = 'edge';
+
 /**
  * Endpoint to delete an existing listing document in the sanity cms.
  */
