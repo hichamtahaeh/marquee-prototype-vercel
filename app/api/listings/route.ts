@@ -1,7 +1,6 @@
 import { NextRequest } from 'next/server';
 const { sanityClient } = require('lib/sanity');
 const { jsonResponse } = require('lib/utils');
-const { USER_TOKEN, USER_DATA } = require('lib/constants');
 
 export const runtime = 'edge';
 

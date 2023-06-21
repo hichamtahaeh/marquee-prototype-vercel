@@ -5,7 +5,7 @@ const { USER_TOKEN } = require('lib/constants');
 const { sanityClient } = require('lib/sanity');
 
 export const config = {
-  matcher: ['/api/listings/:path*', '/api/expire', '/', '/dashboard/:path*', '/login'],
+  matcher: ['/api/listings/:path*', '/', '/dashboard/:path*', '/login'],
 };
 
 /**

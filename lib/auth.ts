@@ -16,7 +16,7 @@ export class AuthError extends Error {}
 export async function verifyAuth(req: NextRequest) {
   const token = req.cookies.get(USER_TOKEN)?.value;
 
-  if (!token) throw new AuthError('Missing user token');
+  if (!token) return false;
 
   try {
     const verified = await jwtVerify(token, new TextEncoder().encode(getJwtSecretKey()));
