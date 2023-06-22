@@ -2,25 +2,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loader from 'components/Loader';
+// import { queryDataset } from 'lib/sanityAxios';
 
 export default function Dashboard() {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Simple method to wait a specified amount of milliseconds before continuing execution thread.
-  // const waitMs = async (ms = 1000) => {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve(true);
-  //     }, ms);
-  //   });
-  // };
-
   // Simple method to fetch data from cms.
   const getListings = async (handleLoading = true) => {
     handleLoading && setLoading(true);
+
+    // Using edge function.
     const response = await axios.get('/api/listings');
+    console.log('response', response);
     setListings(response.data.pass ? response.data.data : []); // Set state.
+
+    // Using axios direct alternative.
+    // const response = await queryDataset({ q: '*[_type == "listing" && organization._ref == "83706b90-c9e5-41bd-8d11-0ba2820b7c19"]' });
+    // console.log('response axios', response);
+    // setListings(response.pass ? response.data.result : []);
     handleLoading && setLoading(false);
   };
 
@@ -28,8 +28,7 @@ export default function Dashboard() {
     setLoading(true);
     const response = await axios.post('/api/listings', listings[0]);
     console.log('response', response);
-    // await waitMs(1000);
-    // await getListings(false);
+    await getListings(false);
     setLoading(false);
   };
 
@@ -37,8 +36,7 @@ export default function Dashboard() {
     setLoading(true);
     const response = await axios.delete(`/api/listings/${_id}`);
     console.log('response', response);
-    // await waitMs(1000);
-    // await getListings(false);
+    await getListings(false);
     setLoading(false);
   };
 

@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
 
   // Create listing.
   try {
-    const sanityResponse = sanityClient.create(body);
+    const sanityResponse = await sanityClient.create(body);
     if (!!sanityResponse === false) {
       return jsonResponse(200, { pass: false, data: 'failed to create listing.' });
     }

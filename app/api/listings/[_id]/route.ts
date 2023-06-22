@@ -14,7 +14,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { _id: 
 
   // Delete listing if in listing table and within organization.
   try {
-    const sanityResponse = sanityClient.delete({
+    const sanityResponse = await sanityClient.delete({
       query: `*[_type == 'listing' && _id == '${_id}' && organization._ref == '${user.organization._ref}' ][0]`,
     });
     if (!!sanityResponse === false) {
