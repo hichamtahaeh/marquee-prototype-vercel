@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import Loader from 'components/Loader';
+import Loader from 'components/atoms/Loader';
+import Button from 'components/atoms/Button';
 
 export default function Home() {
   const router = useRouter();
@@ -53,9 +54,7 @@ export default function Home() {
             }}
             className='marquee-input marquee-input--text mb-8'
           />
-          <button onClick={login} className='marquee-button mb-2'>
-            Sign In
-          </button>
+          <Button label='Sign In' classNames='mb-2' onClick={login}></Button>
           {notification !== '' && <p className='text-red-500'>{notification}</p>}
         </div>
       </div>

@@ -1,8 +1,9 @@
 'use client';
+import React, { useEffect, useState } from 'react';
+// import PropTypes from 'prop-types';
+import './index.css';
 
-import { useEffect, useState } from 'react';
-
-export default function Sidebar() {
+const Sidebar = () => {
   const links = [
     { href: '/dashboard', label: 'Dashboard' },
     { href: '/dashboard/my-content', label: 'My Content' },
@@ -30,4 +31,6 @@ export default function Sidebar() {
       </ul>
     </div>
   );
-}
+};
+
+export default Sidebar;

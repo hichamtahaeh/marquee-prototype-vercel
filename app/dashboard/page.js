@@ -1,7 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Loader from 'components/Loader';
+import Loader from 'components/atoms/Loader';
+import Button from 'components/atoms/Button';
 // import { queryDataset } from 'lib/sanityAxios';
 
 export default function Dashboard() {
@@ -62,14 +63,13 @@ export default function Dashboard() {
               <div className='flex justify-between items-center gap-4'>
                 <p>{listing.description}</p>
                 {i !== 0 && (
-                  <button
+                  <Button
+                    label='Remove'
+                    mode='red'
                     onClick={() => {
                       removeListing(listing._id);
                     }}
-                    className='marquee-button marquee-button--red'
-                  >
-                    Remove
-                  </button>
+                  ></Button>
                 )}
               </div>
             </div>
@@ -77,14 +77,8 @@ export default function Dashboard() {
           {listings.length < 1 && <div>There are currently no listings for this user's organization.</div>}
         </div>
         <div className='flex gap-4 mt-4'>
-          <button onClick={getListings} className='marquee-button'>
-            Refresh Listings
-          </button>
-          {listings.length > 0 ? (
-            <button onClick={createListing} className='marquee-button'>
-              Create Listing
-            </button>
-          ) : null}
+          <Button label='Refresh Listings' onClick={getListings}></Button>
+          {listings.length > 0 ? <Button label='Create Listing' onClick={createListing}></Button> : null}
         </div>
       </div>
       <Loader loading={loading} />

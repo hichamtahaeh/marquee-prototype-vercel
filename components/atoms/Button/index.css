@@ -1,0 +1,15 @@
+.marquee-button {
+  @apply w-fit py-2 px-8 text-white transition-opacity font-medium hover:opacity-75 h-fit border-none;
+
+  &--primary {
+    @apply bg-black;
+  }
+
+  &--red {
+    @apply bg-red-700;
+  }
+
+  &--blue {
+    @apply bg-blue-700;
+  }
+}
