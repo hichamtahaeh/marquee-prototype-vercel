@@ -1,0 +1,32 @@
+{
+	"editor.insertSpaces": false,
+	"editor.tabSize": 4,
+	"editor.detectIndentation": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"prettier.useEditorConfig": false,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.tabWidth": 4,
+	"prettier.printWidth": 150,
+	"prettier.useTabs": true,
+	"prettier.semi": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": false,
+	"[yaml][scss][css][postcss]": {
+		"editor.formatOnSave": true
+	},
+	"[javascript][typescript]": {
+		"editor.formatOnSave": false
+	},
+	"[yaml]": {
+		"editor.defaultFormatter": null,
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"files.eol": "\n",
+	"eslint.packageManager": "yarn",
+	"eslint.validate": ["react", "html", "javascript", "typescript"]
+}

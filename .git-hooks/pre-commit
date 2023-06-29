@@ -1,0 +1,71 @@
+#!/bin/sh
+
+# Load .env variables
+if [ -f .env ]; then export $(cat .env | sed 's/#.*//g' | xargs); fi
+
+# Grab all .js(x) file(s) to perform linting on.
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$")
+
+# 1. Perform linting on staged javascript file(s) ( not committed ).
+if [[ ${staged_files} == "" ]]; then
+	echo "No file(s) to perform linting or test(s) on." >&2
+	exit 0
+fi
+
+echo "Linting javascript file(s)"
+linting_pass=true
+for FILE in $staged_files
+do
+  ./node_modules/.bin/eslint "${FILE}"
+
+  if [[ "$?" == 0 ]]; then
+    echo "Passed: ${FILE}"
+  else
+    echo "Failed: ${FILE}"
+    linting_pass=false
+  fi
+done
+echo "Javascript linting validation completed!"
+
+if ! $linting_pass; then
+  echo "Your commit contains files that should pass ESLint but do not. Please fix the ESLint errors and try again." >&2
+  exit 1
+else
+  echo "COMMIT SUCCEEDED"
+fi
+
+# 2. Perform tests on server file(s).
+echo "Testing javascript file(s)"
+server_javascript_files=$(git diff --cached --name-only --diff-filter=ACM | grep "src/server" | grep ".jsx\{0,1\}$")
+
+if [[ "${server_javascript_files}" == "" ]]; then
+	echo "No file(s) to perform test(s) on." >&2
+else
+
+	# Commented out for now.
+	# # Check to see if the server is running so we can perform the test. Match just numbers incase PM2 does some shiat.
+	# ${PROJECT_APP_NAME}_server=$(pm2 pid ${PROJECT_APP_NAME}_server | grep "^[0-9]")
+	# # If not running, we want to enable it for server side testing. Maybe client side functional testing.
+	# if [[ ${${PROJECT_APP_NAME}_server} == "" ]]; then
+	# 	echo "
+	# 	server not found, please start the server so tests can be ran.
+	# 	" >&2
+	# 	exit 1
+	# fi
+
+	# Run test.
+	yarn test
+
+    # Validate response.
+	if [[ ${?} -ne 0 ]]; then
+		echo "
+		An error occurred while running the test(s). Please check console.
+		" >&2
+		exit 1
+	else
+		echo "TESTS SUCCEEDED"
+	fi
+fi
+
+# 3. Return results to see if we've passed all tests.
+exit ${?}

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "mocha test/**/*.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -14,8 +15,10 @@
     "@sanity/client": "^6.1.2",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "chai": "^4.3.7",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "mocha": "^10.2.0",
     "next": "13.4.4",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
