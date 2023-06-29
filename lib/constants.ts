@@ -1,5 +1,6 @@
 export const USER_TOKEN = 'user-token';
 export const USER_DATA = 'user-data';
+export const TEST_DATA = 'test-data';
 
 const JWT_SECRET_KEY: string | undefined = process.env.JWT_SECRET_KEY!;
 
