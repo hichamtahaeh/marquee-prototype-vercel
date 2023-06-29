@@ -1,8 +1,8 @@
 .card {
-  padding: 1rem;
-  border-radius: 0.25rem;
-  background: white;
-  border: 1px solid black;
-  cursor: pointer;
-  width: fit-content;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background: white;
+    border: 1px solid black;
+    cursor: pointer;
+    width: fit-content;
 }

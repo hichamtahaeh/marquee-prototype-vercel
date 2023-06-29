@@ -5,5 +5,5 @@ import { jsonResponse } from 'lib/utils';
 export const runtime = 'edge';
 
 export async function POST(req: NextRequest) {
-  return expireUserCookie(jsonResponse(200, { success: true }));
+    return expireUserCookie(jsonResponse(200, { success: true }));
 }

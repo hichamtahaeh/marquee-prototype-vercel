@@ -14,12 +14,17 @@
 	"prettier.semi": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": false,
-	"[yaml][scss][css][postcss]": {
+	"[yaml][scss][css][postcss][javascript][typescript]": {
 		"editor.formatOnSave": true
 	},
-	"[javascript][typescript]": {
-		"editor.formatOnSave": false
-	},
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.formatOnSave": true,
+    },
+    "emmet.includeLanguages": {
+        "silverstripe": "html",
+        "javascript": "javascriptreact"
+    },
 	"[yaml]": {
 		"editor.defaultFormatter": null,
 		"editor.formatOnSave": true,

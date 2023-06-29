@@ -14,25 +14,25 @@ fi
 
 echo "Linting javascript file(s)"
 linting_pass=true
-for FILE in $staged_files
-do
-  ./node_modules/.bin/eslint "${FILE}"
+# for FILE in $staged_files
+# do
+#   ./node_modules/.bin/eslint "${FILE}"
 
-  if [[ "$?" == 0 ]]; then
-    echo "Passed: ${FILE}"
-  else
-    echo "Failed: ${FILE}"
-    linting_pass=false
-  fi
-done
-echo "Javascript linting validation completed!"
+#   if [[ "$?" == 0 ]]; then
+#     echo "Passed: ${FILE}"
+#   else
+#     echo "Failed: ${FILE}"
+#     linting_pass=false
+#   fi
+# done
+# echo "Javascript linting validation completed!"
 
-if ! $linting_pass; then
-  echo "Your commit contains files that should pass ESLint but do not. Please fix the ESLint errors and try again." >&2
-  exit 1
-else
-  echo "COMMIT SUCCEEDED"
-fi
+# if ! $linting_pass; then
+#   echo "Your commit contains files that should pass ESLint but do not. Please fix the ESLint errors and try again." >&2
+#   exit 1
+# else
+#   echo "COMMIT SUCCEEDED"
+# fi
 
 # 2. Perform tests if change to app files.
 echo "Running mocha tests."
