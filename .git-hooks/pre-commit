@@ -3,8 +3,8 @@
 # Load .env variables
 if [ -f .env ]; then export $(cat .env | sed 's/#.*//g' | xargs); fi
 
-# Grab all .js(x) file(s) to perform linting on.
-staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$")
+# Grab all relating file(s) to perform linting on.
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep ".{js,ts,jsx,tsx,mdx}$")
 
 # 1. Perform linting on staged javascript file(s) ( not committed ).
 if [[ ${staged_files} == "" ]]; then
@@ -34,9 +34,9 @@ else
   echo "COMMIT SUCCEEDED"
 fi
 
-# 2. Perform tests on server file(s).
+# 2. Perform tests if change to app files.
 echo "Testing javascript file(s)"
-server_javascript_files=$(git diff --cached --name-only --diff-filter=ACM | grep "src/server" | grep ".jsx\{0,1\}$")
+server_javascript_files=$(git diff --cached --name-only --diff-filter=ACM | grep "app/" | grep ".{js,ts,jsx,tsx,mdx}$")
 
 if [[ "${server_javascript_files}" == "" ]]; then
 	echo "No file(s) to perform test(s) on." >&2
