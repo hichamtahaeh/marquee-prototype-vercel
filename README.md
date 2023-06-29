@@ -6,6 +6,7 @@ The following document describes the steps necessary to get the marquee app runn
 
 -   All local testing has been done with node v19.6.1 and yarn.
 -   Clone the .env.local.sample into a newly created .env.local file. Grab environment variables from a marquee developer (Hicham/Chrissy/Derek).
+-   To set the githooks for the project run `git config core.hooksPath .git-hooks/` in the project directory.
 - 	Run `yarn` to build the dependencies.
 - 	Run `yarn dev` to run the app under localhost:3000.
 -   Run `yarn storybook` to get the storybook workshop app running under localhost:6006.
@@ -31,9 +32,9 @@ The following document describes the steps necessary to get the marquee app runn
 ├── .next/									# Distributed client side files to serve.
 ├── node_modules/							# NPM packages.
 ├── app/
-	├── api/								# Vercel edge functions go here.
-	├── dashboard/							# Authenticated dashboard routes go here.
-	├── login/							    # Login page.
+    ├── api/								# Vercel edge functions go here.
+    ├── dashboard/							# Authenticated dashboard routes go here.
+    ├── login/							    # Login page.
 ├── components/							    # UI component atoms, molecules, and organisms written and managed here. Used as reference for story book as well.
 ├── lib/    							    # Reusable functionality used across the app.
 ├── test/									# Mocha test file(s) to run on pre-commit under certain conditions.
