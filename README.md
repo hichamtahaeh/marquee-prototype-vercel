@@ -14,7 +14,8 @@ The following document describes the steps necessary to get the marquee app runn
 ### Scripts
 -   `yarn dev` Will run the local nextjs app under localhost:3000.
 -   `yarn storybook` Will run the local storybook app under localhost:6006.
--   `yarn test` Will run mocha tests specified in the test/ directory.
+-   `yarn test` Will run mocha tests specified in the `test/` directory.
+-   `yarn test-playwrite` Will run playwrite tests specified in the `tests/` directory, and output results as an HTML report on localhost:9323.
 
 ### Linting
 
