@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('custom unit test', async () => {
     expect(2).toStrictEqual(2);
+    // test
 });
 
 test('has title', async ({ page }) => {

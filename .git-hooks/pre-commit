@@ -4,7 +4,7 @@
 if [ -f .env ]; then export $(cat .env | sed 's/#.*//g' | xargs); fi
 
 # Grab all relating file(s) to perform linting on.
-staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep ".ts$\|.js$")
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep "\(.js\|.ts\)\$")
 
 # 1. Perform linting on staged javascript file(s) ( not committed ).
 if [[ ${staged_files} == "" ]]; then
@@ -36,7 +36,7 @@ fi
 
 # 2. Perform tests if change to app files.
 echo "Running mocha/playwright tests."
-# specific_files_to_test=$(git diff --cached --name-only --diff-filter=ACM | grep ".ts$\|.js$")
+# specific_files_to_test=$(git diff --cached --name-only --diff-filter=ACM | grep "\(\.js\|\.ts\)\$")
 
 # if [[ "${specific_files_to_test}" == "" ]]; then
 # 	echo "No file(s) to perform test(s) on." >&2
