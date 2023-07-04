@@ -4,7 +4,7 @@ The following document describes the steps necessary to get the marquee app runn
 
 ### How to setup
 
--   All local testing has been done with node v19.6.1 and yarn.
+-   All local testing has been done with node `v19.6.1` and yarn.
 -   Clone the .env.local.sample into a newly created .env.local file. Grab environment variables from a marquee developer (Hicham/Chrissy/Derek).
 -   To set the githooks for the project run `git config core.hooksPath .git-hooks/` in the project directory.
 -   Run `yarn` to build the dependencies.
@@ -37,7 +37,15 @@ The following document describes the steps necessary to get the marquee app runn
     ├── dashboard/                          # Authenticated dashboard routes go here.
     ├── login/                              # Login page.
 ├── components/                             # UI component atoms, molecules, and organisms written and managed here. Used as reference for story book as well.
-├── lib/                                    # Reusable functionality used across the app.
+├── lib/
+    ├── actions/                            # Functions for dispatching actions to their appropriate reducer.
+    ├── hooks/                              # Reusable hook logic used across app components.
+    ├── reducers/                           # Reducers provided to the Context object's specified in the lib/state file. 
+    ├── auth.ts                             # JWT middleware authentication logic.
+    ├── constants.ts                        # General app constants.
+    ├── sanity.ts                           # Sanity client sdk configurations.
+    ├── state.js                            # All Context API wrapper components.
+    ├── utils.ts                            # Reusable app logic.
 ├── node_modules/                           # NPM packages.
 ├── public/                                 # Assets to server statically.
 ├── stories/                                # Storybook default homepage files and example stories.

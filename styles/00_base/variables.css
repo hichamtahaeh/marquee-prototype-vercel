@@ -1,0 +1,63 @@
+:root {
+    /*------------------------------------*\
+	            COLOR VARIABLES
+    \*------------------------------------*/
+    --tam--color--primary--red-400: #9c0f00;
+    --tam--color--primary--red-500: #6d1012;
+    --tam--color--secondary--teal-100: #e6f7f5;
+    --tam--color--secondary--teal-200: #cfefec;
+    --tam--color--secondary--teal-300: #00a79a;
+    --tam--color--secondary--slate-500: #073142;
+    --tam--color--secondary--wildrose-500: #2794d3;
+    --tam--color--neutral-100: #ffffff;
+    --tam--color--neutral-200: #f6f6f6;
+    --tam--color--neutral-300: #dbdedf;
+    --tam--color--neutral-400: #a5acb0;
+    --tam--color--neutral-500: #69727a;
+    --tam--color--neutral-600: #373c40;
+    --tam--color--neutral-700: #000000;
+    --tam--color--success-100: #f7fffa;
+    --tam--color--success-200: #cef2d9;
+    --tam--color--success-300: #70cc8b;
+    --tam--color--success-400: #24a148;
+    --tam--color--success-500: #0a6625;
+    --tam--color--warning-100: #fff2e5;
+    --tam--color--warning-200: #ffc78c;
+    --tam--color--warning-300: #ffa140;
+    --tam--color--warning-400: #e3790b;
+    --tam--color--warning-500: #b25f09;
+    --tam--color--error-100: #fff2f3;
+    --tam--color--error-200: #ffcccf;
+    --tam--color--error-300: #f27980;
+    --tam--color--error-400: #da1e28;
+    --tam--color--error-500: #a60009;
+
+    /*------------------------------------*\
+	            TYPOGRAPHY VARIABLES
+    \*------------------------------------*/
+    --tam--type--font-family--primary: 'Futura PT', Arial;
+    --tam--type--font-family--secondary: Arial;
+
+    /*------------------------------------*\
+	            SPACING VARIABLES
+    \*------------------------------------*/
+    --tam--space--20: 5rem; /* 80px */
+    --tam--space--15: 3.75rem; /* 60px */
+    --tam--space--12: 3rem; /* 48px */
+    --tam--space--9: 2.25rem; /* 36px */
+    --tam--space--6: 1.5rem; /* 24px */
+    --tam--space--4: 1rem; /* 16px */
+    --tam--space--3: 0.75rem; /* 12px */
+    --tam--space--2: 0.5rem; /* 8px */
+    --tam--space--1: 0.25rem; /* 4px */
+
+    /*------------------------------------*\
+	            RADIUS VARIABLES
+    \*------------------------------------*/
+    --tam--radius--xl: 2.25rem; /* 36px */
+    --tam--radius--lg: 1.5rem; /* 24px */
+    --tam--radius--md: 1rem; /* 16px */
+    --tam--radius--sm: 0.75rem; /* 12px */
+    --tam--radius--xs: 0.5rem; /* 8px */
+    --tam--radius--xxs: 0.25rem; /* 4px */
+}

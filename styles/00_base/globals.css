@@ -10,19 +10,45 @@ body {
     overflow-x: hidden;
 }
 
-body {
-    color: black;
-    background: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 a {
     color: inherit;
     text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
+h1 {
+    @apply font-bold text-4xl md:text-7xl;
+    line-height: 1.5;
+}
+
+h2 {
+    @apply font-bold md:text-5xl;
+    font-size: 1.75rem;
+    line-height: 1.5;
+}
+
+h3 {
+    @apply font-bold text-2xl md:text-3xl;
+    line-height: 1.5;
+}
+
+h4 {
+    @apply font-semibold md:text-3xl;
+    font-size: 1.3125rem; /* 21px */
+    line-height: 1.5;
+}
+
+h5 {
+    @apply font-semibold text-lg md:text-2xl;
+    line-height: 1.5;
+}
+
+h6 {
+    @apply font-bold text-base md:text-lg;
+    line-height: 1.5;
+}
+
+.tam-subhead-4 {
+    @apply font-normal;
+    font-size: 1.75rem;
+    line-height: 1.5;
 }

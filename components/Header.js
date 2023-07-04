@@ -1,21 +1,18 @@
 'use client';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { setUser } from 'lib/actions/globalActions';
+import { useGlobalValue } from 'lib/state';
 
 export default function Header() {
     const router = useRouter();
-    const [user, setUser] = useState({});
+    const [{ user }, dispatch] = useGlobalValue();
 
     const logout = async () => {
         await axios.post('/api/expire');
+        dispatch(setUser({}));
         router.push('/'); // Attempt to go home after removing token.
-        localStorage.removeItem('user');
     };
-
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('user')));
-    }, []);
 
     return (
         <div className='marquee-dashboard-header flex justify-between gap-4'>

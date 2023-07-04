@@ -1,4 +1,3 @@
-const axios = require('axios');
 const { createClient } = require('@sanity/client');
 
 const sanityClient = createClient({
