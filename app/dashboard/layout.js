@@ -11,8 +11,8 @@ export default function DashboardLayout({ children }) {
     const [, dispatch] = useGlobalValue();
 
     const fetchCurrentUser = async () => {
-        setLoading(true);
         console.log('load current user data into global state');
+        setLoading(true);
         const currentUserResponse = await axios.get('/api/users/me');
         dispatch(setUser(currentUserResponse.pass ? currentUserResponse.data : {}));
         setLoading(false);
