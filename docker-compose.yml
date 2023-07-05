@@ -1,0 +1,21 @@
+services:
+  web:
+    image: node:19.6.1
+    command: 'bash -c "yarn && yarn dev && yarn storybook"'
+    ports:
+      - 3000:3000
+      - 6006:6006
+    working_dir: /web
+    volumes:
+      - ./web:/web:cached
+    restart: on-failure
+    depends_on:
+      - sanity
+  sanity:
+    image: node:19.6.1
+    working_dir: /sanity
+    command: 'bash -c "yarn && yarn dev"'
+    ports:
+      - 3333:3333
+    volumes:
+      - ./sanity:/sanity:cached
